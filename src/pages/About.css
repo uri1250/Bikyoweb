@@ -1,0 +1,227 @@
+/*==================================
+  New Design: General & Typography
+  ==================================*/
+
+:root {
+  --green-pak: #007a33; /* A strong, classic green for Pakistan's national identity */
+  --white-pak: #fff; /* White for clean contrast */
+  --slate-blue: #3d4a66; /* A sophisticated dark background color */
+  --sun-yellow: #fddb44; /* A vibrant, eye-catching yellow for highlights */
+  --light-gray: #f9fafb; /* Off-white for section backgrounds */
+  --dark-text: #2c3445;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--dark-text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+/*==================================
+  About Hero Section
+  ==================================*/
+
+.about-hero {
+  background: var(--slate-blue);
+  color: var(--white-pak);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: pulse-one 8s infinite ease-in-out;
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: pulse-two 10s infinite ease-in-out;
+}
+
+@keyframes pulse-one {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pulse-two {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.about-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white-pak);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.about-hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 700px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+  z-index: 1;
+}
+
+/*==================================
+  Mission & Vision Section (Combined)
+  ==================================*/
+
+.mission-vision-section {
+  padding: 6rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  background-color: var(--light-gray);
+}
+
+.mission-card,
+.vision-card {
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background-color: var(--white-pak);
+  border-left: 5px solid var(--green-pak);
+}
+
+.mission-card h2,
+.vision-card h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--green-pak);
+  margin-bottom: 1rem;
+}
+
+.mission-card p,
+.vision-card p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--dark-text);
+}
+
+@media (min-width: 768px) {
+  .mission-vision-section {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/*==================================
+  Features Section
+  ==================================*/
+
+.about-features {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: var(--white-pak);
+}
+
+.about-features h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--slate-blue);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.about-features h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--sun-yellow);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: var(--light-gray);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  background-color: var(--white-pak);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--sun-yellow);
+  background-color: rgba(253, 219, 68, 0.1);
+  padding: 1rem;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  color: var(--green-pak);
+  background-color: rgba(0, 122, 51, 0.1);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-text);
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark-text);
+}

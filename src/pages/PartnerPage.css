@@ -1,0 +1,335 @@
+/*==================================
+  Partner Page Styling
+  ==================================*/
+
+/* General & Typography */
+:root {
+  --primary-color: #0d8342; /* Strong Green */
+  --secondary-color: #f7a01d; /* Vibrant Orange */
+  --dark-bg: #111827; /* Deep Charcoal */
+  --light-bg: #f3f4f6; /* Off-White */
+  --text-dark: #374151;
+  --text-light: #e5e7eb;
+  --card-bg: #ffffff;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+}
+
+.partner-page {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--dark-bg);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80%;
+  max-width: 120px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/*==================================
+  Hero Section
+  ==================================*/
+
+.hero {
+  background: linear-gradient(
+      135deg,
+      rgba(13, 131, 66, 0.9),
+      rgba(17, 24, 39, 0.9)
+    ),
+    url("https://images.unsplash.com/photo-1602447998317-09a15a86d267?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat center center/cover;
+  color: var(--text-light);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-inner {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: var(--secondary-color);
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.download-buttons img {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.download-buttons img:hover {
+  transform: translateY(-5px);
+}
+
+/*==================================
+  Benefits Carousel Section
+  ==================================*/
+
+.benefits {
+  background-color: var(--light-bg);
+  padding: 4rem 2rem;
+}
+
+.benefit-card {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 15px; /* Spacing between cards in the carousel */
+  border-top: 5px solid var(--primary-color);
+  text-align: left;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+  color: var(--dark-bg);
+  margin-bottom: 0.5rem;
+}
+
+.benefit-card h3 > span {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.benefit-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* Slick Carousel Overrides */
+.slick-slide > div {
+  padding: 10px;
+}
+
+.slick-dots li button:before {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--secondary-color);
+}
+
+/*==================================
+  Testimonial Section
+  ==================================*/
+
+.testimonial {
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  padding: 6rem 2rem;
+}
+
+.testimonial h2 {
+  color: white;
+}
+
+.testimonial h2::after {
+  background: var(--secondary-color);
+}
+
+blockquote {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+  position: relative;
+  color: var(--text-light);
+}
+
+blockquote::before {
+  content: "“";
+  font-size: 5rem;
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  opacity: 0.2;
+  color: var(--secondary-color);
+}
+
+cite {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+/*==================================
+  Steps Section
+  ==================================*/
+
+.steps {
+  background-color: var(--light-bg);
+  padding: 6rem 2rem;
+}
+
+.step-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.step-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.step:hover .step-number {
+  background-color: var(--secondary-color);
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: var(--dark-bg);
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/*==================================
+  Final CTA Section
+  ==================================*/
+
+.final-cta {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 4rem 2rem;
+}
+
+.final-cta h2 {
+  color: white;
+}
+
+.final-cta h2::after {
+  background: white;
+}
+
+.final-cta p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(247, 160, 29, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+  background-color: #e59315;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(247, 160, 29, 0.6);
+}
+
+/*==================================
+  Responsive Design
+  ==================================*/
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+}

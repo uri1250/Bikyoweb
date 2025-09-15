@@ -1,0 +1,178 @@
+/* -------------------------------------- */
+/* --- Global Styles and Typography --- */
+/* -------------------------------------- */
+
+.offers-page {
+  /* padding: 20px 20px; */
+  /* background-color: var(--background-color); */
+  color: var(--text-color-light);
+}
+
+.offers-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* -------------------------------------- */
+/* --- Offer Card & Content Styles --- */
+/* -------------------------------------- */
+.offer-card {
+  background-color: #242424;
+  border-radius: 25px;
+  overflow: hidden;
+  margin: 15px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* .offer-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+} */
+
+.offer-image-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 33.8%; /* 668 / 1976 * 100 = 33.8% aspect ratio */
+  overflow: hidden;
+}
+
+.offer-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the box (crops edges) */
+  /* object-fit: contain;  <-- Use this if you want full image without cropping */
+  transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-image {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  z-index: 10;
+  letter-spacing: 1px;
+}
+
+.offer-content {
+  padding: 25px;
+}
+
+.offer-description {
+  font-size: 1rem;
+  color: var(--text-color-dark);
+  line-height: 1.6;
+}
+
+/* -------------------------------------- */
+/* --- React Slick Customizations --- */
+/* -------------------------------------- */
+
+/* Main slider container */
+.slick-slider {
+  user-select: none;
+}
+
+/* Navigation dots */
+.slick-dots {
+  bottom: -40px;
+  z-index: 10;
+}
+
+.slick-dots li button:before {
+  font-size: 10px;
+  color: var(--text-color-dark);
+  opacity: 0.6;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Navigation arrows */
+.slick-prev:before,
+.slick-next:before {
+  content: "";
+}
+
+/* .slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+} */
+
+/* .slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.slick-prev {
+  left: 20px;
+} */
+
+.slick-next {
+  right: 20px;
+}
+
+/* Custom arrow icons (using unicode) */
+.slick-prev:after {
+  content: "‹";
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  color: var(--text-color-light);
+}
+
+.slick-next:after {
+  content: "›";
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  color: var(--text-color-light);
+}
+
+/* -------------------------------------- */
+/* --- Media Queries for Responsiveness --- */
+/* -------------------------------------- */
+@media (max-width: 768px) {
+  .offers-page {
+    padding: 30px 10px;
+  }
+  .offer-card {
+    margin: 10px;
+  }
+}
+
+/* For smaller screens, hide arrows */
+@media (max-width: 500px) {
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+}
