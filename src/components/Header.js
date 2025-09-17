@@ -34,9 +34,9 @@ function Header() {
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-          <a href="#services" className="dropdown-toggle">
+          {/* <a href="#services" className="dropdown-toggle">
             Our Services ▾
-          </a>
+          </a> */}
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <a href="/ride">Ride</a>

@@ -4,164 +4,151 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    to right,
-    #eef2ff,
-    #e0e7ff
-  ); /* Corresponds to from-blue-50 to-blue-100 */
-  padding: 2rem; /* Corresponds to p-8 */
+  background: linear-gradient(to right, #113d25, #236340);
+  padding: 2rem;
 }
 
 /* Main Wrapper for Grid */
 .contact-page-wrapper {
-  max-width: 70rem; /* Corresponds to max-w-5xl (approx. 70rem) */
+  max-width: 70rem;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr; /* Corresponds to grid-cols-1 */
-  gap: 2.5rem; /* Corresponds to gap-10 */
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
 }
 
-/* Responsive Grid for Larger Screens */
 @media (min-width: 768px) {
-  /* Corresponds to md:grid-cols-2 */
   .contact-page-wrapper {
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 1fr)
-    ); /* Equivalent to grid-cols-2 */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 /* Left Section - Text Content */
 .contact-info-section {
-  space-y-6: "variable"; /* Tailwind uses space-y, we'll manage spacing with margin/padding */
-  padding-bottom: 1.5rem; /* Example for spacing if needed, or rely on element margins */
+  padding-bottom: 1.5rem;
 }
 
 .contact-info-section h1 {
-  font-size: 2.5rem; /* Corresponds to text-4xl */
-  font-weight: 700; /* Corresponds to font-bold */
-  color: #1e3a8a; /* Corresponds to text-blue-800 */
-  margin-bottom: 1.5rem; /* Manual spacing for h1 */
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff; /* White for strong contrast */
+  margin-bottom: 1.5rem;
 }
 
 .contact-info-section h1 span {
-  color: #2563eb; /* Corresponds to text-blue-600 */
+  color: #b5e5c2; /* Light green accent */
 }
 
 .contact-info-section p {
-  color: #4b5563; /* Corresponds to text-gray-600 */
-  line-height: 1.75; /* Corresponds to leading-relaxed */
-  margin-bottom: 1rem; /* Manual spacing for paragraphs */
+  color: #e2e8f0; /* Soft grayish white for readability */
+  line-height: 1.75;
+  margin-bottom: 1rem;
 }
 
 .contact-details {
-  space-y-4: "variable"; /* Manual spacing */
+  margin-top: 1rem;
 }
 
 .contact-detail-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* Corresponds to gap-3 */
-  margin-bottom: 1rem; /* Manual spacing */
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .contact-detail-item .icon {
-  font-size: 1.5rem; /* Corresponds to text-2xl */
+  font-size: 1.5rem;
+  color: #b5e5c2; /* Green accent for icons */
 }
 
 .contact-detail-item .text {
-  color: #374151; /* Corresponds to text-gray-700 */
+  color: #f1f5f9; /* Very light gray for text */
 }
 
 /* Right Section - Contact Form */
 .contact-form-section {
-  background-color: white; /* Corresponds to bg-white */
-  border-radius: 1rem; /* Corresponds to rounded-2xl */
+  background-color: #ffffff;
+  border-radius: 1rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Corresponds to shadow-lg */
-  padding: 1.5rem; /* Corresponds to p-6 */
-  space-y-4: "variable"; /* Manual spacing */
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
 }
 
 .contact-form-section h2 {
-  font-size: 1.5rem; /* Corresponds to text-2xl */
-  font-weight: 600; /* Corresponds to font-semibold */
-  color: #1d4ed8; /* Corresponds to text-blue-700 */
-  margin-bottom: 1rem; /* Corresponds to mb-4 */
-}
-
-.contact-form {
-  space-y-4: "variable"; /* Manual spacing */
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #236340; /* Deep green accent */
+  margin-bottom: 1rem;
 }
 
 .form-group {
-  margin-bottom: 1rem; /* Manual spacing for form groups */
+  margin-bottom: 1rem;
 }
 
 .form-group label {
   display: block;
-  color: #4b5563; /* Corresponds to text-gray-600 */
-  margin-bottom: 0.25rem; /* Manual spacing */
+  color: #374151; /* Neutral dark gray for form labels */
+  margin-bottom: 0.25rem;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
   width: 100%;
-  margin-top: 0.25rem; /* Corresponds to mt-1 */
-  padding: 0.5rem 1rem; /* Corresponds to px-4 py-2 */
-  border: 1px solid #d1d5eb; /* Default border color */
-  border-radius: 0.5rem; /* Corresponds to rounded-lg */
+  margin-top: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
   outline: none;
-  transition: box-shadow 0.2s ease-in-out; /* For focus effect */
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #93c5fd; /* Corresponds to focus:ring-2 focus:ring-blue-400 */
+  box-shadow: 0 0 0 2px #6ee7b7; /* Green glow */
 }
 
 .form-group textarea {
-  min-height: 6rem; /* Corresponds to rows="4" visually */
+  min-height: 6rem;
 }
 
+/* Submit Button */
 .submit-button {
   width: 100%;
-  background-color: #2563eb; /* Corresponds to bg-blue-600 */
+  background-color: #236340; /* Main green */
   color: white;
-  padding: 0.5rem 1rem; /* Corresponds to py-2 */
-  border-radius: 0.5rem; /* Corresponds to rounded-lg */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   transition: background-color 0.2s ease-in-out;
-  border: none; /* Remove default button border */
+  border: none;
   cursor: pointer;
-  font-size: 1rem; /* Default font size */
-  line-height: 1.5; /* Default line height */
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .submit-button:hover {
-  background-color: #1d4ed8; /* Corresponds to hover:bg-blue-700 */
+  background-color: #113d25; /* Darker green on hover */
 }
 
 .submit-button:disabled {
-  background-color: #9ca3af; /* Gray out when disabled */
+  background-color: #9ca3af;
   cursor: not-allowed;
 }
 
 /* Success/Error Message */
 .message-display {
   text-align: center;
-  margin-top: 0.75rem; /* Corresponds to mt-3 */
-  font-size: 0.875rem; /* Corresponds to text-sm */
-  font-weight: 500; /* Corresponds to font-medium */
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .message-display.success {
-  color: #10b981; /* Corresponds to text-green-600 */
+  color: #16a34a; /* Green-600 */
 }
 
 .message-display.error {
-  color: #ef4444; /* Example for error color */
+  color: #dc2626; /* Red-600 */
 }

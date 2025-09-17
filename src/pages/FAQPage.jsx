@@ -108,20 +108,19 @@ export default function FAQPage() {
             category, or contact us directly.
           </p>
           <div className="faq-cta-cards">
-            <a className="cta-card" href="tel:+922138654444">
+            {/* <a className="cta-card" href="tel:+922138654444">
               <span className="cta-badge">Call 24/7</span>
               <h3>021-3865-4444</h3>
               <p>Immediate assistance</p>
-            </a>
+            </a> */}
             <a className="cta-card" href="mailto:support@bikyo.com">
               <span className="cta-badge alt">Email</span>
-              <h3>support@bikyo.com</h3>
+              <h3>bikyoride@gmail.com</h3>
               <p>Replies within hours</p>
             </a>
-            <a className="cta-card" href="/contact">
+            <a className="cta-card" href="/ContactPage">
               <span className="cta-badge">Help Center</span>
               <h3>Contact Form</h3>
-              <p>Track tickets easily</p>
             </a>
           </div>
         </div>

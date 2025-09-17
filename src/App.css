@@ -115,7 +115,10 @@ h3 {
   transform: translateY(-3px);
   box-shadow: 0 12px 20px rgba(247, 160, 29, 0.6);
 }
-
+a.cta {
+  text-decoration: none; /* removes underline */
+  color: inherit; /* keeps text color consistent */
+}
 /*==================================
   Services Section
   ==================================*/

@@ -28,8 +28,8 @@ function Footer() {
             <span className="footer-logo-text">BIKYO</span>
           </div>
           <p className="footer-description">
-            Empowering physicians with advanced multi-modal tools to improve
-            treatment selection and patient outcomes.
+            From rides to delivery, from payments to shopping — Bikyo brings it
+            all in one app
           </p>
 
           <div className="footer-social-links">
@@ -62,11 +62,10 @@ function Footer() {
               <li>
                 <a href="/">Homepage</a>
               </li>
-              
-              
-              <li>
+
+              {/* <li>
                 <a href="/resources">Resources & news</a>
-              </li>
+              </li> */}
               {/* <li>
                 <a href="/careers">Careers</a>
               </li> */}
@@ -80,12 +79,15 @@ function Footer() {
             <h3>Legal</h3>
             <ul className="footer-links-list">
               <li>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="https://sites.google.com/view/bikyo/privacy">
+                  Privacy Policy
+                </a>
               </li>
               <li>
-                <a href="/terms-of-services">Terms of Services</a>
+                <a href="https://sites.google.com/view/bikyo/terms">
+                  Terms of Services
+                </a>
               </li>
-              
             </ul>
           </div>
         </div>

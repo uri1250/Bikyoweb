@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -11,7 +11,30 @@ import FAQPage from "./pages/FAQPage";
 import OffersPage from "./pages/OffersPage";
 import ContactUsScreen from "./pages/ContactPage";
 
+// Firebase imports
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "./firebase"; // make sure firebase.js is set up
+
 function Home() {
+  const [downloadUrl, setDownloadUrl] = useState("");
+
+  useEffect(() => {
+    const fetchDownloadLink = async () => {
+      try {
+        const docRef = doc(db, "appLinks", "appDownload"); // Firestore collection + doc
+        const snapshot = await getDoc(docRef);
+
+        if (snapshot.exists()) {
+          setDownloadUrl(snapshot.data().downloadUrl);
+        }
+      } catch (error) {
+        console.error("Error fetching download link:", error);
+      }
+    };
+
+    fetchDownloadLink();
+  }, []);
+
   return (
     <div className="App">
       {/* Hero Section */}
@@ -21,18 +44,19 @@ function Home() {
           From rides to delivery, from payments to shopping — Bikyo brings it
           all in one app.
         </p>
-        {/* <button className="cta">Download App</button> */}
-        <a
-          href="https://github.com/uri1250/file/raw/6d582ab6bb7a96139b7944c97bc2aee79538e3eb/Zero,%20Single,%202%20Teachers%20Schools%20Punjab(zia.anjum).xlsx"
-          download
-          className="cta"
-        >
-          Download App
-        </a>
+
+        {/* Download button dynamically fetched from Firestore */}
+        {downloadUrl && (
+          <a href={downloadUrl} download className="cta">
+            Download App
+          </a>
+        )}
       </section>
+
       <section className="hero1">
         <OffersPage />
       </section>
+
       {/* Services */}
       <section id="services" className="services">
         <h2>Our Services</h2>

@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PartnerPage.css";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Firebase imports
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase"; // adjust path to your firebase.js
+
 function PartnerPage() {
+  const [downloadUrl, setDownloadUrl] = useState("");
+
+  useEffect(() => {
+    const fetchDownloadLink = async () => {
+      try {
+        const docRef = doc(db, "appLinks", "appDownload"); // Firestore collection + document
+        const snapshot = await getDoc(docRef);
+
+        if (snapshot.exists()) {
+          setDownloadUrl(snapshot.data().downloadUrl);
+        }
+      } catch (error) {
+        console.error("Error fetching download link:", error);
+      }
+    };
+
+    fetchDownloadLink();
+  }, []);
+
   const benefits = [
     {
       title: "🚀 Earn More",
@@ -53,26 +75,11 @@ function PartnerPage() {
             flexibly, earn more, and be your own boss.
           </p>
           <div className="download-buttons">
-            <a
-              href="https://play.google.com/store"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                alt="Get it on Google Play"
-              />
-            </a>
-            <a
-              href="https://www.apple.com/app-store/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {/* <img
-                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                alt="Download on the App Store"
-              /> */}
-            </a>
+            {downloadUrl && (
+              <a href={downloadUrl} download className="cta">
+                Download App
+              </a>
+            )}
           </div>
         </div>
       </section>
@@ -133,9 +140,13 @@ function PartnerPage() {
         <p>
           Join today and take control of your future with flexible earnings.
         </p>
-        <Link to="/signup">
-          <button className="cta-btn">Download Now</button>
-        </Link>
+        <div className="download-buttons">
+          {downloadUrl && (
+            <a href={downloadUrl} download className="cta">
+              Download App
+            </a>
+          )}
+        </div>
       </section>
     </div>
   );
