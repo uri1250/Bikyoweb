@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -93,6 +94,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
+        <Analytics />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/PartnerPage" element={<PartnerPage />} />
