@@ -19,7 +19,7 @@
 /* -------------------------------------- */
 .offer-card {
   background-color: #242424;
-  border-radius: 25px;
+  border-radius: 2px;
   overflow: hidden;
   margin: 15px;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -162,7 +162,7 @@
 /* -------------------------------------- */
 @media (max-width: 768px) {
   .offers-page {
-    padding: 30px 10px;
+    padding: 1px 1px;
   }
   .offer-card {
     margin: 10px;
