@@ -93,8 +93,8 @@ function App() {
   return (
     <Router>
       <Header />
+      <Analytics />
       <Routes>
-        <Analytics />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/PartnerPage" element={<PartnerPage />} />
