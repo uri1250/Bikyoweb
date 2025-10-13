@@ -3,8 +3,6 @@
 /* -------------------------------------- */
 
 .offers-page {
-  /* padding: 20px 20px; */
-  /* background-color: var(--background-color); */
   color: var(--text-color-light);
 }
 
@@ -29,26 +27,16 @@
   flex-direction: column;
 }
 
-/* .offer-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-} */
-
 .offer-image-wrap {
   position: relative;
   width: 100%;
-  padding-top: 33.8%; /* 668 / 1976 * 100 = 33.8% aspect ratio */
   overflow: hidden;
 }
 
 .offer-image {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Fills the box (crops edges) */
-  /* object-fit: contain;  <-- Use this if you want full image without cropping */
+  height: auto;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
@@ -84,12 +72,10 @@
 /* --- React Slick Customizations --- */
 /* -------------------------------------- */
 
-/* Main slider container */
 .slick-slider {
   user-select: none;
 }
 
-/* Navigation dots */
 .slick-dots {
   bottom: -40px;
   z-index: 10;
@@ -107,36 +93,15 @@
   opacity: 1;
 }
 
-/* Navigation arrows */
 .slick-prev:before,
 .slick-next:before {
   content: "";
 }
 
-/* .slick-prev,
-.slick-next {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease;
-} */
-
-/* .slick-prev:hover,
-.slick-next:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.slick-prev {
-  left: 20px;
-} */
-
 .slick-next {
   right: 20px;
 }
 
-/* Custom arrow icons (using unicode) */
 .slick-prev:after {
   content: "‹";
   font-size: 30px;
@@ -158,18 +123,43 @@
 }
 
 /* -------------------------------------- */
-/* --- Media Queries for Responsiveness --- */
+/* --- Media Queries --- */
 /* -------------------------------------- */
-@media (max-width: 768px) {
-  .offers-page {
-    padding: 1px 1px;
-  }
+
+/* Hide banner (offer-card) on desktop */
+@media (min-width: 769px) {
   .offer-card {
-    margin: 10px;
+    display: none !important;
   }
 }
 
-/* For smaller screens, hide arrows */
+/* Show only on mobile and set image to 300x600 */
+@media (max-width: 768px) {
+  .offers-page {
+    padding: 5px;
+  }
+
+  .offer-card {
+    margin: 10px auto;
+    width: fit-content;
+    display: block !important;
+  }
+
+  .offer-image-wrap {
+    width: 380px !important;
+    height: 600px !important;
+    margin: 0 auto;
+  }
+
+  .offer-image {
+    width: 380px !important;
+    height: 600px !important;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Hide arrows on very small screens */
 @media (max-width: 500px) {
   .slick-prev,
   .slick-next {

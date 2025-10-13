@@ -50,7 +50,7 @@ function Header() {
         {/* <a href="#franchises">Franchises</a> */}
         <a href="/FAQPage">Help Center</a>
         {/* <a href="OffersPage">Offerpage</a> */}
-        {/* <a href="/AdminFAQ">Add Question</a> */}
+        { <a href="/AdminFAQ">Add Question</a> }
 
         <button className="contact-btn">
           {" "}

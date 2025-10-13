@@ -9,18 +9,16 @@ import PartnerPage from "./pages/PartnerPage";
 import FAQPage from "./pages/FAQPage";
 import OffersPage from "./pages/OffersPage";
 import ContactUsScreen from "./pages/ContactPage";
-import useFacebookPixel from "./components/useFacebookPixel"; // ✅ Custom Pixel Hook
+import useFacebookPixel from "./components/useFacebookPixel";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "./firebase";
-
-// ✅ Ensure fbq is accessible globally
+import AdminFAQ from "./pages/AdminFAQ";
 if (typeof window !== "undefined" && !window.fbq) {
   window.fbq = function () {
     console.log("Meta Pixel not initialized yet.");
   };
 }
 
-// ✅ Define trackEvent globally
 const trackEvent = (eventName, params = {}) => {
   if (typeof window.fbq === "function") {
     window.fbq("trackCustom", eventName, params);
@@ -32,7 +30,7 @@ const trackEvent = (eventName, params = {}) => {
 function Home() {
   const [downloadUrl, setDownloadUrl] = useState("");
 
-  useFacebookPixel("823437247007309"); // ✅ Initialize Pixel ID
+  useFacebookPixel("823437247007309");
 
   useEffect(() => {
     const fetchDownloadLink = async () => {
@@ -52,12 +50,12 @@ function Home() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App urdu-text">
       <section className="hero">
-        <h1>Bikyo is your everyday, everything platform</h1>
+        <h1>بائیکو — آپ کے روزمرہ کے ہر کام کا ساتھی</h1>
         <p>
-          From rides to delivery, from payments to shopping — Bikyo brings it
-          all in one app.
+          رائیڈز سے لے کر ڈیلیوری تک، ادائیگیوں سے لے کر شاپنگ تک — بائیکو ایک
+          ہی ایپ میں سب کچھ لاتا ہے۔
         </p>
 
         {downloadUrl && (
@@ -72,7 +70,7 @@ function Home() {
               })
             }
           >
-            Download App
+            ایپ ڈاؤن لوڈ کریں
           </a>
         )}
       </section>
@@ -82,28 +80,28 @@ function Home() {
       </section>
 
       <section id="services" className="services">
-        <h2>Our Services</h2>
+        <h2>ہماری خدمات</h2>
         <div className="cards">
           <div className="card">
-            <h3>Ride</h3>
-            <p>Fast, safe rides across the city.</p>
+            <h3>رائیڈ</h3>
+            <p>پورے شہر میں تیز اور محفوظ سفر۔</p>
           </div>
           <div className="card">
-            <h3>Delivery</h3>
-            <p>Send parcels and documents quickly.</p>
+            <h3>ڈیلیوری</h3>
+            <p>پارسل اور دستاویزات فوری پہنچائیں۔</p>
           </div>
           <div className="card">
-            <h3>Shop</h3>
-            <p>Order essentials delivered to your doorstep.</p>
+            <h3>شاپنگ</h3>
+            <p>ضروری اشیاء اپنے دروازے پر حاصل کریں۔</p>
           </div>
         </div>
       </section>
 
       <section id="about" className="about">
-        <h2>About Bikyo</h2>
+        <h2>بائیکو کے بارے میں</h2>
         <p>
-          Bikyo connects people, businesses, and riders across Pakistan. Our
-          mission is to provide reliable and affordable services every day.
+          بائیکو پاکستان بھر میں لوگوں، کاروباروں اور رائیڈرز کو جوڑتا ہے۔ ہمارا
+          مقصد ہے قابلِ اعتماد اور کم خرچ خدمات ہر روز فراہم کرنا۔
         </p>
       </section>
     </div>
@@ -113,17 +111,20 @@ function Home() {
 function App() {
   return (
     <Router>
-      <Header />
-      <Analytics />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/PartnerPage" element={<PartnerPage />} />
-        <Route path="/FAQPage" element={<FAQPage />} />
-        <Route path="/ContactPage" element={<ContactUsScreen />} />
-        <Route path="/OffersPage" element={<OffersPage />} />
-      </Routes>
-      <Footer />
+      <div dir="ltr" className="ltr-container">
+        <Header />
+        <Analytics />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/PartnerPage" element={<PartnerPage />} />
+          <Route path="/FAQPage" element={<FAQPage />} />
+          <Route path="/ContactPage" element={<ContactUsScreen />} />
+          <Route path="/OffersPage" element={<OffersPage />} />
+          <Route path="/AdminFAQ" element={<AdminFAQ />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }

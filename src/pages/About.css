@@ -1,25 +1,29 @@
 /*==================================
-  New Design: General & Typography
+  New Design (RTL Urdu Version)
   ==================================*/
 
 :root {
-  --green-pak: #007a33; /* A strong, classic green for Pakistan's national identity */
-  --white-pak: #fff; /* White for clean contrast */
-  --slate-blue: #3d4a66; /* A sophisticated dark background color */
-  --sun-yellow: #fddb44; /* A vibrant, eye-catching yellow for highlights */
-  --light-gray: #f9fafb; /* Off-white for section backgrounds */
+  --green-pak: #007a33; /* Pakistan Green */
+  --white-pak: #fff;
+  --slate-blue: #3d4a66;
+  --sun-yellow: #fddb44;
+  --light-gray: #f9fafb;
   --dark-text: #2c3445;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Noto Nastaliq Urdu", "Poppins", "Jameel Noori Nastaleeq",
+    sans-serif;
   color: var(--dark-text);
+  direction: rtl; /* Right-to-Left for Urdu */
+  text-align: center;
+  background-color: var(--white-pak);
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Nastaliq Urdu", "Montserrat", "Jameel Noori Nastaleeq";
   font-weight: 700;
 }
 
@@ -45,7 +49,7 @@ h3 {
   content: "";
   position: absolute;
   top: -50px;
-  right: -50px;
+  left: -50px; /* flipped for RTL */
   width: 250px;
   height: 250px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -57,7 +61,7 @@ h3 {
   content: "";
   position: absolute;
   bottom: -50px;
-  left: -50px;
+  right: -50px; /* flipped for RTL */
   width: 200px;
   height: 200px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -88,7 +92,7 @@ h3 {
 .about-hero h1 {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.4;
   color: var(--white-pak);
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
@@ -97,13 +101,14 @@ h3 {
 .about-hero p {
   font-size: clamp(1rem, 2vw, 1.25rem);
   max-width: 700px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   margin-top: 1rem;
   z-index: 1;
+  text-align: center;
 }
 
 /*==================================
-  Mission & Vision Section (Combined)
+  Mission & Vision Section
   ==================================*/
 
 .mission-vision-section {
@@ -120,7 +125,8 @@ h3 {
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   background-color: var(--white-pak);
-  border-left: 5px solid var(--green-pak);
+  border-right: 5px solid var(--green-pak); /* flipped for RTL */
+  text-align: right;
 }
 
 .mission-card h2,
@@ -133,7 +139,7 @@ h3 {
 .mission-card p,
 .vision-card p {
   font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 2;
   color: var(--dark-text);
 }
 
@@ -221,7 +227,7 @@ h3 {
 }
 
 .feature-card p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: var(--dark-text);
 }

@@ -31,6 +31,7 @@
 .contact-info-section h1 {
   font-size: 2.5rem;
   font-weight: 700;
+  text-align: center;
   color: #ffffff; /* White for strong contrast */
   margin-bottom: 1.5rem;
 }

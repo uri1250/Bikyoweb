@@ -30,20 +30,20 @@ function PartnerPage() {
 
   const benefits = [
     {
-      title: "🚀 Earn More",
-      desc: "Maximize your income with weekly payouts and performance bonuses.",
+      title: "🚀 زیادہ کمائیں",
+      desc: "ہفتہ وار ادائیگیوں اور کارکردگی بونس کے ساتھ اپنی آمدنی کو زیادہ سے زیادہ کریں۔",
     },
     {
-      title: "📅 Flexible Hours",
-      desc: "Work whenever you want. Choose your own schedule, full-time or part-time.",
+      title: "📅 لچکدار اوقات",
+      desc: "جب چاہیں کام کریں۔ اپنی مرضی کا شیڈول بنائیں، فل ٹائم یا پارٹ ٹائم۔",
     },
     {
-      title: "⭐ Be Your Own Boss",
-      desc: "No boss, no fixed shifts. You are in control of your earnings and time.",
+      title: "⭐ اپنے خود کے باس بنیں",
+      desc: "نہ کوئی باس، نہ مقررہ شفٹ۔ آپ اپنی آمدنی اور وقت کے خود مالک ہیں۔",
     },
     {
-      title: "🎁 Weekly Bonuses",
-      desc: "Hit milestones and unlock exciting weekly rewards with Bikyo.",
+      title: "🎁 ہفتہ وار بونس",
+      desc: "اہداف حاصل کریں اور بائیکو کے ساتھ دلچسپ ہفتہ وار انعامات حاصل کریں۔",
     },
   ];
 
@@ -69,25 +69,31 @@ function PartnerPage() {
           slidesToShow: 1, // show only 1 card
         },
       },
+      {
+        breakpoint: 412, // below 768px (mobile)
+        settings: {
+          slidesToShow: 1, // show only 1 card
+        },
+      },
     ],
   };
 
   return (
-    <div className="partner-page">
+    <div className="partner-page" dir="rtl">
       {/* Hero */}
       <section className="hero">
         <div className="hero-inner">
           <h1>
-            Become a <span>Bikyo Partner</span>
+            بَنیں <span>بائیکو پارٹنر</span>
           </h1>
           <p>
-            Join thousands of riders and businesses earning with Bikyo. Work
-            flexibly, earn more, and be your own boss.
+            ہزاروں رائیڈرز اور بزنسز کے ساتھ جُڑیں جو بائیکو سے کمائی کر رہے
+            ہیں۔ لچکدار کام، زیادہ کمائی، اور خود مختار بنیں۔
           </p>
           <div className="download-buttons">
             {downloadUrl && (
               <a href={downloadUrl} download className="cta">
-                Download App
+                ایپ ڈاؤن لوڈ کریں
               </a>
             )}
           </div>
@@ -96,7 +102,7 @@ function PartnerPage() {
 
       {/* Benefits Carousel */}
       <section className="benefits">
-        <h2>Why Partner with Bikyo?</h2>
+        <h2>بائیکو کے ساتھ پارٹنر کیوں بنیں؟</h2>
         <Slider {...settings}>
           {benefits.map((benefit, index) => (
             <div key={index} className="benefit-card">
@@ -109,36 +115,38 @@ function PartnerPage() {
 
       {/* Testimonial */}
       <section className="testimonial">
-        <h2>Success Stories</h2>
+        <h2>کامیابی کی کہانیاں</h2>
         <blockquote>
-          “Since joining Bikyo, I earn Rs 5,000 weekly in bonuses. The
-          flexibility allows me to manage my family and still increase my
-          income.”
+          "بائیکو کے ساتھ جڑنے کے بعد، میں ہر ہفتے 5000 روپے بونس میں کماتا ہوں۔
+          لچکدار اوقات کی وجہ سے میں اپنے خاندان کا خیال بھی رکھتا ہوں اور آمدنی
+          بھی بڑھاتا ہوں۔"
         </blockquote>
-        <cite>— Ali Raza, Rider Partner</cite>
+        <cite>— علی رضا، رائیڈر پارٹنر</cite>
       </section>
 
       {/* Steps */}
       <section className="steps">
-        <h2>How to Get Started</h2>
+        <h2>شروع کیسے کریں</h2>
         <div className="step-cards">
           <div className="step">
             <div className="step-number">1</div>
-            <h3>Download App</h3>
-            <p>Get the Bikyo Partner app from Play Store or App Store.</p>
+            <h3>ایپ ڈاؤن لوڈ کریں</h3>
+            <p>پلے اسٹور یا ایپ اسٹور سے بائیکو پارٹنر ایپ حاصل کریں۔</p>
           </div>
           <div className="step">
             <div className="step-number">2</div>
-            <h3>Register</h3>
+            <h3>رجسٹر کریں</h3>
             <p>
-              Fill in your details, upload documents, and verify your profile.
+              اپنی معلومات درج کریں، دستاویزات اپ لوڈ کریں، اور پروفائل کی تصدیق
+              کریں۔
             </p>
           </div>
           <div className="step">
             <div className="step-number">3</div>
-            <h3>Start Earning</h3>
+            <h3>کمائی شروع کریں</h3>
             <p>
-              Accept rides and deliveries, complete them, and get paid weekly.
+              رائیڈز اور ڈیلیوریز قبول کریں، مکمل کریں، اور ہفتہ وار ادائیگی
+              حاصل کریں۔
             </p>
           </div>
         </div>
@@ -146,14 +154,15 @@ function PartnerPage() {
 
       {/* Final CTA */}
       <section className="final-cta">
-        <h2>Ready to Partner with Bikyo?</h2>
+        <h2>کیا آپ بائیکو کے ساتھ پارٹنر بننے کے لیے تیار ہیں؟</h2>
         <p>
-          Join today and take control of your future with flexible earnings.
+          آج ہی شامل ہوں اور لچکدار آمدنی کے ساتھ اپنے مستقبل پر کنٹرول حاصل
+          کریں۔
         </p>
         <div className="download-buttons">
           {downloadUrl && (
             <a href={downloadUrl} download className="cta">
-              Download App
+              ایپ ڈاؤن لوڈ کریں
             </a>
           )}
         </div>

@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef } from "react";
 import "./FAQPage.css";
-import { db } from "../firebase"; // <-- your firebase config file
+import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 function useHashOpen(setActiveId) {
@@ -19,7 +19,7 @@ function useHashOpen(setActiveId) {
 }
 
 export default function FAQPage() {
-  const [faqs, setFaqs] = useState([]); // dynamic from Firebase
+  const [faqs, setFaqs] = useState([]);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("customers");
   const [openId, setOpenId] = useState("");
@@ -28,7 +28,6 @@ export default function FAQPage() {
 
   useHashOpen(setOpenId);
 
-  // Fetch from Firebase
   useEffect(() => {
     async function fetchFAQs() {
       try {
@@ -37,9 +36,9 @@ export default function FAQPage() {
         const data = snapshot.docs.map((doc) => {
           const d = doc.data();
           return {
-            id: d.id || doc.id, // fallback to doc.id if "id" field missing
-            label: d.label || "Unnamed",
-            faqs: Array.isArray(d.faqs) ? d.faqs : [], // ensure always an array
+            id: d.id || doc.id,
+            label: d.label || "غیر نامزد",
+            faqs: Array.isArray(d.faqs) ? d.faqs : [],
           };
         });
 
@@ -99,44 +98,39 @@ export default function FAQPage() {
 
   return (
     <div className="faq-page">
-      {/* Hero/CTA */}
+      {/* ہیرو سیکشن */}
       <header className="faq-hero">
         <div className="faq-hero-inner">
-          <h1>We’re here to help</h1>
+          <h1>ہم آپ کی مدد کے لیے حاضر ہیں</h1>
           <p>
-            Find quick answers or reach our 24/7 support team. Search, browse by
-            category, or contact us directly.
+            فوری جوابات حاصل کریں یا ہماری 24/7 سپورٹ ٹیم سے رابطہ کریں۔ تلاش
+            کریں، زمرہ منتخب کریں یا ہم سے براہِ راست رابطہ کریں۔
           </p>
           <div className="faq-cta-cards">
-            {/* <a className="cta-card" href="tel:+922138654444">
-              <span className="cta-badge">Call 24/7</span>
-              <h3>021-3865-4444</h3>
-              <p>Immediate assistance</p>
-            </a> */}
             <a className="cta-card" href="mailto:support@bikyo.com">
-              <span className="cta-badge alt">Email</span>
+              <span className="cta-badge alt">ای میل</span>
               <h3>bikyoride@gmail.com</h3>
-              <p>Replies within hours</p>
+              <p>کچھ گھنٹوں میں جواب دیا جاتا ہے</p>
             </a>
             <a className="cta-card" href="/ContactPage">
-              <span className="cta-badge">Help Center</span>
-              <h3>Contact Form</h3>
+              <span className="cta-badge">ہیلپ سینٹر</span>
+              <h3>رابطہ فارم</h3>
             </a>
           </div>
         </div>
         <div className="faq-hero-blobs" aria-hidden="true" />
       </header>
 
-      {/* Toolbar */}
+      {/* ٹول بار */}
       <section className="faq-toolbar">
         <div className="faq-search">
           <input
             ref={searchRef}
             type="search"
-            placeholder="Search questions (e.g., payments, insurance, franchise)…"
+            placeholder="سوال تلاش کریں (مثلاً ادائیگی، انشورنس، فرنچائز)…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            aria-label="Search FAQs"
+            aria-label="عمومی سوالات تلاش کریں"
           />
           <button
             type="button"
@@ -145,7 +139,7 @@ export default function FAQPage() {
               setQuery("");
               searchRef.current?.focus();
             }}
-            aria-label="Clear search"
+            aria-label="تلاش صاف کریں"
             hidden={!query}
           >
             ✕
@@ -169,15 +163,15 @@ export default function FAQPage() {
 
         <div className="faq-utils">
           <span className="result">
-            {count} result{count !== 1 ? "s" : ""}
+            {count} نتیجہ{count !== 1 ? "جات" : ""}
           </span>
           <button className="ghost" onClick={handleExpandAll}>
-            {expandedAll ? "Collapse all" : "Expand all"}
+            {expandedAll ? "سب سمیٹیں" : "سب کھولیں"}
           </button>
         </div>
       </section>
 
-      {/* FAQ List */}
+      {/* عمومی سوالات کی فہرست */}
       <main className="faq-list" aria-live="polite">
         {visibleFaqs.map((item) => {
           const isOpen = expandedAll || openId === item.id;
@@ -216,12 +210,12 @@ export default function FAQPage() {
                     className="mini"
                     onClick={() => copyLink(item.id)}
                   >
-                    Copy link
+                    لنک کاپی کریں
                   </button>
                   <div className="mini-group">
-                    <span>Was this helpful?</span>
-                    <button className="mini">Yes</button>
-                    <button className="mini">No</button>
+                    <span>کیا یہ مددگار تھا؟</span>
+                    <button className="mini">ہاں</button>
+                    <button className="mini">نہیں</button>
                   </div>
                 </div>
               </div>
@@ -231,23 +225,23 @@ export default function FAQPage() {
 
         {count === 0 && (
           <div className="empty">
-            <h4>No results found</h4>
-            <p>Try a different keyword or choose another category.</p>
+            <h4>کوئی نتیجہ نہیں ملا</h4>
+            <p>دوسرا لفظ آزمائیں یا مختلف زمرہ منتخب کریں۔</p>
           </div>
         )}
       </main>
 
-      {/* Footer CTA */}
+      {/* نیچے والا رابطہ سیکشن */}
       <section className="faq-bottom-cta">
         <div className="cta-inner">
-          <h2>Still need help?</h2>
-          <p>Our support team is available round the clock to assist you.</p>
+          <h2>اب بھی مدد چاہیے؟</h2>
+          <p>ہماری سپورٹ ٹیم ہر وقت آپ کی مدد کے لیے دستیاب ہے۔</p>
           <div className="cta-actions">
             <a className="btn primary" href="tel:+922138654444">
-              Call Support
+              کال سپورٹ
             </a>
             <a className="btn" href="/contact">
-              Open a Ticket
+              ٹکٹ کھولیں
             </a>
           </div>
         </div>
