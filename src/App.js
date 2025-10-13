@@ -121,7 +121,6 @@ function App() {
           <Route path="/FAQPage" element={<FAQPage />} />
           <Route path="/ContactPage" element={<ContactUsScreen />} />
           <Route path="/OffersPage" element={<OffersPage />} />
-          <Route path="/AdminFAQ" element={<AdminFAQ />} />
         </Routes>
         <Footer />
       </div>
