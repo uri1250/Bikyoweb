@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./PartnerPage.css";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -28,56 +27,6 @@ function PartnerPage() {
     fetchDownloadLink();
   }, []);
 
-  const benefits = [
-    {
-      title: "🚀 زیادہ کمائیں",
-      desc: "ہفتہ وار ادائیگیوں اور کارکردگی بونس کے ساتھ اپنی آمدنی کو زیادہ سے زیادہ کریں۔",
-    },
-    {
-      title: "📅 لچکدار اوقات",
-      desc: "جب چاہیں کام کریں۔ اپنی مرضی کا شیڈول بنائیں، فل ٹائم یا پارٹ ٹائم۔",
-    },
-    {
-      title: "⭐ اپنے خود کے باس بنیں",
-      desc: "نہ کوئی باس، نہ مقررہ شفٹ۔ آپ اپنی آمدنی اور وقت کے خود مالک ہیں۔",
-    },
-    {
-      title: "🎁 ہفتہ وار بونس",
-      desc: "اہداف حاصل کریں اور بائیکو کے ساتھ دلچسپ ہفتہ وار انعامات حاصل کریں۔",
-    },
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3, // default for desktop
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3500,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024, // below 1024px
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768, // below 768px (mobile)
-        settings: {
-          slidesToShow: 1, // show only 1 card
-        },
-      },
-      {
-        breakpoint: 412, // below 768px (mobile)
-        settings: {
-          slidesToShow: 1, // show only 1 card
-        },
-      },
-    ],
-  };
-
   return (
     <div className="partner-page" dir="rtl">
       {/* Hero */}
@@ -87,8 +36,8 @@ function PartnerPage() {
             بَنیں <span>بائیکو پارٹنر</span>
           </h1>
           <p>
-            ہزاروں رائیڈرز اور بزنسز کے ساتھ جُڑیں جو بائیکو سے کمائی کر رہے
-            ہیں۔ لچکدار کام، زیادہ کمائی، اور خود مختار بنیں۔
+            ابھی بائیکو کے ساتھ اپنا سفر شروع کریں — جہاں ہر رائیڈ ہے کمائی کا
+            نیا موقع۔
           </p>
           <div className="download-buttons">
             {downloadUrl && (
@@ -101,7 +50,7 @@ function PartnerPage() {
       </section>
 
       {/* Benefits Carousel */}
-      <section className="benefits">
+      {/* <section className="benefits">
         <h2>بائیکو کے ساتھ پارٹنر کیوں بنیں؟</h2>
         <Slider {...settings}>
           {benefits.map((benefit, index) => (
@@ -111,17 +60,16 @@ function PartnerPage() {
             </div>
           ))}
         </Slider>
-      </section>
+      </section> */}
 
       {/* Testimonial */}
       <section className="testimonial">
-        <h2>کامیابی کی کہانیاں</h2>
+        <h2>اعتماد اور کمائی</h2>
         <blockquote>
-          "بائیکو کے ساتھ جڑنے کے بعد، میں ہر ہفتے 5000 روپے بونس میں کماتا ہوں۔
-          لچکدار اوقات کی وجہ سے میں اپنے خاندان کا خیال بھی رکھتا ہوں اور آمدنی
-          بھی بڑھاتا ہوں۔"
+          "بائیکو کے ساتھ میرا تجربہ شاندار رہا۔ ایپ استعمال میں آسان ہے اور
+          کسٹمرز بھی ہمیشہ مطمئن رہتے ہیں۔ اب میں اپنے خواب پورے کر رہا ہوں۔"
         </blockquote>
-        <cite>— علی رضا، رائیڈر پارٹنر</cite>
+        <cite>— سمیع اللہ، رائیڈر پارٹنر</cite>
       </section>
 
       {/* Steps */}
@@ -131,7 +79,9 @@ function PartnerPage() {
           <div className="step">
             <div className="step-number">1</div>
             <h3>ایپ ڈاؤن لوڈ کریں</h3>
-            <p>پلے اسٹور یا ایپ اسٹور سے بائیکو پارٹنر ایپ حاصل کریں۔</p>
+            <p>
+              ویب سائٹ سے <strong>بائیکو پارٹنر ایپ</strong> حاصل کریں۔
+            </p>
           </div>
           <div className="step">
             <div className="step-number">2</div>
@@ -145,8 +95,8 @@ function PartnerPage() {
             <div className="step-number">3</div>
             <h3>کمائی شروع کریں</h3>
             <p>
-              رائیڈز اور ڈیلیوریز قبول کریں، مکمل کریں، اور ہفتہ وار ادائیگی
-              حاصل کریں۔
+              رائیڈز اور ڈیلیوریز قبول کریں، مکمل کریں، اورفوری ادائیگی حاصل
+              کریں۔
             </p>
           </div>
         </div>

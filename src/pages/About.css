@@ -138,8 +138,9 @@ h3 {
 
 .mission-card p,
 .vision-card p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 2;
+  font-weight: 500;
   color: var(--dark-text);
 }
 

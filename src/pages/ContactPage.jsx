@@ -47,20 +47,16 @@ export default function ContactPage() {
           </h1>
           <p>
             کوئی سوال، رائے یا مدد درکار ہے؟ فارم پُر کریں یا ہم سے براہِ راست
-            رابطہ کریں۔ ہم آپ کی مدد کے لیے ہمیشہ موجود ہیں!
+            !رابطہ کریں۔ ہم آپ کی مدد کے لیے ہمیشہ موجود ہیں
           </p>
           <div className="contact-details">
             <p className="contact-detail-item">
               <span className="icon">📞</span>
-              <span className="text">+92 300 1234567</span>
+              <span className="text">+92 3124109223</span>
             </p>
             <p className="contact-detail-item">
               <span className="icon">📧</span>
-              <span className="text">support@bikyoweb.com</span>
-            </p>
-            <p className="contact-detail-item">
-              <span className="icon">📍</span>
-              <span className="text">کراچی، پاکستان</span>
+              <span className="text">bikyoride@gmail.com</span>
             </p>
           </div>
         </div>
