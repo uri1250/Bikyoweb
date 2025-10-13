@@ -12,7 +12,6 @@ import ContactUsScreen from "./pages/ContactPage";
 import useFacebookPixel from "./components/useFacebookPixel";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "./firebase";
-import AdminFAQ from "./pages/AdminFAQ";
 if (typeof window !== "undefined" && !window.fbq) {
   window.fbq = function () {
     console.log("Meta Pixel not initialized yet.");
