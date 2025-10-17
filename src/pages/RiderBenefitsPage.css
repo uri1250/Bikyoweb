@@ -1,0 +1,95 @@
+/* -------------------------------------- */
+/* --- Urdu Rider Benefits Styles --- */
+/* -------------------------------------- */
+
+/* .urdu-text {
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  line-height: 1.9;
+  color: #222;
+} */
+
+.rider-page {
+  background-color: #f9fafb;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Heading */
+.rider-page h1 {
+  color: #198754; /* green shade for riders */
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Cards Grid */
+.rider-page .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row desktop */
+  gap: 20px;
+}
+
+/* Cards */
+.rider-page .grid > div {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.rider-page .grid > div:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Titles */
+.rider-page h2 {
+  font-size: 1.25rem;
+  color: #111;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Descriptions */
+.rider-page p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Join Button */
+.rider-btn {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #198754;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.rider-btn:hover {
+  background-color: #146c43;
+}
+
+/* Responsive: 1 card per row in mobile */
+@media (max-width: 768px) {
+  .rider-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .rider-page .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rider-btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+  }
+}

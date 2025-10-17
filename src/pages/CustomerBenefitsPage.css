@@ -1,0 +1,101 @@
+/* -------------------------------------- */
+/* --- Urdu Customer Benefits Styles --- */
+/* -------------------------------------- */
+
+.urdu-text {
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  line-height: 1.9;
+  color: #222;
+}
+
+/* Page container */
+.urdu-text {
+  background-color: #f9fafb;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* Headline */
+.urdu-text h1 {
+  color: #0d6efd;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Benefit cards grid */
+.urdu-text .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards on desktop */
+  gap: 20px;
+}
+
+/* Each benefit card */
+.urdu-text .grid > div {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.urdu-text .grid > div:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Titles */
+.urdu-text h2 {
+  font-size: 2.25rem;
+  color: #111;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+.urdu-text1 p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Install Button */
+.urdu-text1 a {
+  display: inline-block;
+  margin-top: 30px;
+  background-color: #0d6dfd00;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 2.1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.urdu-text a:hover {
+  background-color: #eeeeee00;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .urdu-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .urdu-text p {
+    font-size: 2rem;
+  }
+
+  .urdu-text a {
+    padding: 10px 22px;
+    font-size: 2rem;
+  }
+
+  /* 1 card per row on mobile */
+  .urdu-text .grid {
+    grid-template-columns: 1fr;
+  }
+}
