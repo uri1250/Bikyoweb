@@ -226,7 +226,7 @@ function Home() {
                 color: "#cccf0bff",
               }}
             >
-              DownloadApp : {downloadCount}
+              DOWNLOAD APP : {downloadCount}
             </p>
           </>
         )}
