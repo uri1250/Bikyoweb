@@ -10,8 +10,9 @@
 // import OffersPage from "./pages/OffersPage";
 // import ContactUsScreen from "./pages/ContactPage";
 // import useFacebookPixel from "./components/useFacebookPixel";
-// import { doc, getDoc } from "firebase/firestore";
+// import { doc, getDoc, updateDoc, increment } from "firebase/firestore"; // ✅ added updateDoc + increment
 // import { db } from "./firebase";
+
 // if (typeof window !== "undefined" && !window.fbq) {
 //   window.fbq = function () {
 //     console.log("Meta Pixel not initialized yet.");
@@ -28,6 +29,7 @@
 
 // function Home() {
 //   const [downloadUrl, setDownloadUrl] = useState("");
+//   const [downloadCount, setDownloadCount] = useState(0); // ✅ new state for total downloads
 
 //   useFacebookPixel("823437247007309");
 
@@ -38,7 +40,9 @@
 //         const snapshot = await getDoc(docRef);
 
 //         if (snapshot.exists()) {
-//           setDownloadUrl(snapshot.data().downloadUrl);
+//           const data = snapshot.data();
+//           setDownloadUrl(data.downloadUrl);
+//           setDownloadCount(data.downloadCount || 0); // ✅ get count from DB
 //         }
 //       } catch (error) {
 //         console.error("Error fetching download link:", error);
@@ -47,6 +51,23 @@
 
 //     fetchDownloadLink();
 //   }, []);
+
+//   // ✅ Function to increment the download count
+//   const handleDownload = async () => {
+//     try {
+//       const docRef = doc(db, "appLinks", "appDownload");
+//       await updateDoc(docRef, {
+//         downloadCount: increment(1), // increment by 1
+//       });
+//       setDownloadCount((prev) => prev + 1); // update UI instantly
+//       trackEvent("DownloadApp", {
+//         platform: "Website",
+//         source: "HeroSection",
+//       });
+//     } catch (error) {
+//       console.error("Error updating download count:", error);
+//     }
+//   };
 
 //   return (
 //     <div className="App urdu-text">
@@ -58,19 +79,25 @@
 //         </p>
 
 //         {downloadUrl && (
-//           <a
-//             href={downloadUrl}
-//             download
-//             className="cta"
-//             onClick={() =>
-//               trackEvent("DownloadApp", {
-//                 platform: "Website",
-//                 source: "HeroSection",
-//               })
-//             }
-//           >
-//             ایپ ڈاؤن لوڈ کریں
-//           </a>
+//           <>
+//             <a
+//               href={downloadUrl}
+//               download
+//               className="cta"
+//               onClick={handleDownload} // ✅ use new function
+//             >
+//               ایپ ڈاؤن لوڈ کریں
+//             </a>
+//             <p
+//               style={{
+//                 marginTop: "10px",
+//                 fontSize: "40px",
+//                 color: "#cccf0bff",
+//               }}
+//             >
+//               DOWNLOAD APP : {downloadCount}
+//             </p>
+//           </>
 //         )}
 //       </section>
 
@@ -141,15 +168,23 @@ import FAQPage from "./pages/FAQPage";
 import OffersPage from "./pages/OffersPage";
 import ContactUsScreen from "./pages/ContactPage";
 import useFacebookPixel from "./components/useFacebookPixel";
-import { doc, getDoc, updateDoc, increment } from "firebase/firestore"; // ✅ added updateDoc + increment
+import {
+  doc,
+  getDoc,
+  updateDoc,
+  increment,
+  onSnapshot,
+} from "firebase/firestore"; // ✅ added onSnapshot for live update
 import { db } from "./firebase";
 
+// Fallback if Pixel isn't loaded yet
 if (typeof window !== "undefined" && !window.fbq) {
   window.fbq = function () {
     console.log("Meta Pixel not initialized yet.");
   };
 }
 
+// Track Facebook Pixel Events
 const trackEvent = (eventName, params = {}) => {
   if (typeof window.fbq === "function") {
     window.fbq("trackCustom", eventName, params);
@@ -160,20 +195,21 @@ const trackEvent = (eventName, params = {}) => {
 
 function Home() {
   const [downloadUrl, setDownloadUrl] = useState("");
-  const [downloadCount, setDownloadCount] = useState(0); // ✅ new state for total downloads
+  const [downloadCount, setDownloadCount] = useState(0); // ✅ Track total downloads
 
   useFacebookPixel("823437247007309");
 
   useEffect(() => {
+    const docRef = doc(db, "appLinks", "appDownload");
+
+    // ✅ Fetch initial data
     const fetchDownloadLink = async () => {
       try {
-        const docRef = doc(db, "appLinks", "appDownload");
         const snapshot = await getDoc(docRef);
-
         if (snapshot.exists()) {
           const data = snapshot.data();
           setDownloadUrl(data.downloadUrl);
-          setDownloadCount(data.downloadCount || 0); // ✅ get count from DB
+          setDownloadCount(data.downloadCount || 0);
         }
       } catch (error) {
         console.error("Error fetching download link:", error);
@@ -181,16 +217,25 @@ function Home() {
     };
 
     fetchDownloadLink();
+
+    // ✅ Real-time update listener (auto updates count without refresh)
+    const unsubscribe = onSnapshot(docRef, (snapshot) => {
+      if (snapshot.exists()) {
+        setDownloadCount(snapshot.data().downloadCount || 0);
+      }
+    });
+
+    return () => unsubscribe(); // cleanup listener
   }, []);
 
-  // ✅ Function to increment the download count
+  // ✅ Increment download count and update instantly
   const handleDownload = async () => {
     try {
       const docRef = doc(db, "appLinks", "appDownload");
       await updateDoc(docRef, {
-        downloadCount: increment(1), // increment by 1
+        downloadCount: increment(1),
       });
-      setDownloadCount((prev) => prev + 1); // update UI instantly
+      setDownloadCount((prev) => prev + 1); // instant UI update
       trackEvent("DownloadApp", {
         platform: "Website",
         source: "HeroSection",
@@ -215,10 +260,11 @@ function Home() {
               href={downloadUrl}
               download
               className="cta"
-              onClick={handleDownload} // ✅ use new function
+              onClick={handleDownload}
             >
               ایپ ڈاؤن لوڈ کریں
             </a>
+
             <p
               style={{
                 marginTop: "10px",
