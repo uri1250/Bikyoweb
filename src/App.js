@@ -264,7 +264,18 @@ function Home() {
             >
               ایپ ڈاؤن لوڈ کریں
             </a>
-
+            <p
+              style={{
+                marginTop: "10px",
+                fontSize: "22px",
+                color: "#fffb02ff",
+                lineHeight: "1.6",
+                fontFamily: "poppins",
+              }}
+            >
+              The app is only available here and not on the Play Store, App
+              Store, or any other platform.
+            </p>
             <p
               style={{
                 marginTop: "10px",
